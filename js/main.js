@@ -278,12 +278,10 @@ function initCountdown() {
   const countdownEl = document.getElementById("countdown");
   if (!countdownEl) return;
 
-  // Giả lập thời gian kết thúc flash sale (sau 3 ngày)
-  let endTime = localStorage.getItem("flashSaleEnd");
-  if (!endTime) {
-    const d = new Date();
-    d.setDate(d.getDate() + 3);
-    endTime = d.getTime();
+  let endTime = Number(localStorage.getItem("flashSaleEnd"));
+  const now = Date.now();
+  if (!endTime || isNaN(endTime) || endTime <= now) {
+    endTime = now + 3 * 24 * 60 * 60 * 1000 + 14 * 60 * 60 * 1000;
     localStorage.setItem("flashSaleEnd", endTime);
   }
 
@@ -294,9 +292,8 @@ function initCountdown() {
     const distance = endTime - now;
 
     if (distance < 0) {
-      clearInterval(timer);
-      countdownEl.innerHTML = "<h3>Đã kết thúc Flash Sale!</h3>";
-      return;
+      endTime = Date.now() + 3 * 24 * 60 * 60 * 1000;
+      localStorage.setItem("flashSaleEnd", endTime);
     }
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24))
@@ -858,19 +855,21 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeaderSearch();
   initScrollReveal();
 
-  // Kiểm tra trang hiện tại
+  // Kiểm tra trang hiện tại linh hoạt (hỗ trợ cả Localhost, GitHub Pages, Live Server)
   const path = window.location.pathname;
   if (
+    document.getElementById("countdown") ||
+    document.getElementById("flash-sale-products") ||
     path.includes("index.html") ||
     path === "/" ||
-    path.endsWith("ASM/") ||
+    path.endsWith("/") ||
     path.endsWith("ASM")
   ) {
     initHomePage();
     initCountdown();
-  } else if (path.includes("products.html")) {
+  } else if (document.getElementById("all-products") || path.includes("products.html")) {
     initProductsPage();
-  } else if (path.includes("product-detail.html")) {
+  } else if (document.getElementById("product-detail-container") || path.includes("product-detail.html")) {
     initProductDetailPage();
   }
 });
