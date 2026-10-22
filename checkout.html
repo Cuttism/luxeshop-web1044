@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán · LUXESPORT Performance Atelier</title>
+    <meta name="description" content="Hoàn tất đơn hàng thời trang thể thao cao cấp tại LUXESPORT.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-bolt-lightning"></i> LUXESPORT
+            </a>
+            <ul class="nav-links">
+                <li><a href="products.html?section=men">Men</a></li>
+                <li><a href="products.html?section=women">Women</a></li>
+                <li><a href="products.html?section=kids">Kids</a></li>
+                <li><a href="products.html?section=streetwear">Streetwear</a></li>
+                <li><a href="products.html?section=icons">Icons</a></li>
+            </ul>
+            <div class="header-search">
+                <input type="text" placeholder="Tìm giày carbon, đồ nén cơ..." id="header-search-input">
+                <button id="header-search-btn" title="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" title="Chuyển chế độ giao diện">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="javascript:void(0)" onclick="openSideCart()" class="cart-toggle" title="Giỏ hàng">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="section-header-editorial">
+            <div>
+                <h1 class="section-title">Thanh Toán Đơn Hàng</h1>
+                <span class="section-meta">Vui lòng điền thông tin người nhận để hoàn tất đơn hàng</span>
+            </div>
+        </div>
+
+        <div class="checkout-layout">
+            <div class="checkout-form-wrap">
+                <h3 style="font-family: var(--font-display); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 1.5rem;">Thông Tin Giao Hàng</h3>
+                <form id="checkout-form" novalidate>
+                    <div class="form-group auth-field" id="group-fullname" style="margin-bottom: 1rem;">
+                        <label for="fullname">Họ và Tên *</label>
+                        <input type="text" id="fullname" placeholder="Nguyễn Văn A">
+                        <span class="error-message auth-error-msg">Vui lòng nhập họ tên.</span>
+                    </div>
+
+                    <div class="form-group auth-field" id="group-email" style="margin-bottom: 1rem;">
+                        <label for="email">Địa Chỉ Email *</label>
+                        <input type="email" id="email" placeholder="example@domain.com">
+                        <span class="error-message auth-error-msg">Email không hợp lệ.</span>
+                    </div>
+
+                    <div class="form-group auth-field" id="group-phone" style="margin-bottom: 1rem;">
+                        <label for="phone">Số Điện Thoại *</label>
+                        <input type="text" id="phone" placeholder="0912 345 678">
+                        <span class="error-message auth-error-msg">Số điện thoại phải từ 9-11 số.</span>
+                    </div>
+
+                    <div class="form-group auth-field" id="group-address" style="margin-bottom: 1.5rem;">
+                        <label for="address">Địa Chỉ Giao Hàng Chi Tiết *</label>
+                        <textarea id="address" rows="3" placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành phố" style="background: var(--bg-surface-elevated); border: 1px solid var(--border); border-radius: 4px; padding: 0.75rem; color: var(--text-main); outline: none;"></textarea>
+                        <span class="error-message auth-error-msg">Vui lòng nhập địa chỉ giao hàng.</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">Xác Nhận Đặt Hàng</button>
+                </form>
+            </div>
+
+            <div class="cart-summary" id="checkout-summary">
+                <!-- JS sẽ render tóm tắt ở đây -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Fat Footer Directory -->
+    <section class="fat-footer">
+        <div class="fat-footer-inner">
+            <div class="fat-footer-grid">
+                <div class="fat-footer-col">
+                    <h3><i class="fa-solid fa-person-running"></i> Bộ Môn Thể Thao</h3>
+                    <ul>
+                        <li><a href="products.html?section=icons">Chạy Bộ Đường Dài (Marathon)</a></li>
+                        <li><a href="products.html?section=men">Tập Gym & Thể Lực (CrossFit)</a></li>
+                        <li><a href="products.html?section=women">Tennis & Pickleball Court</a></li>
+                        <li><a href="products.html?section=women">Yoga & Phục Hồi Cơ</a></li>
+                        <li><a href="products.html?section=icons">Chạy Trail & Vượt Núi</a></li>
+                    </ul>
+                </div>
+                <div class="fat-footer-col">
+                    <h3><i class="fa-solid fa-shapes"></i> Danh Mục Nổi Bật</h3>
+                    <ul>
+                        <li><a href="products.html?section=men">Đồ Thể Thao Nam</a></li>
+                        <li><a href="products.html?section=women">Đồ Thể Thao Nữ</a></li>
+                        <li><a href="products.html?section=kids">Trang Phục Thiếu Nhi</a></li>
+                        <li><a href="products.html?section=streetwear">Tech Fleece & Hoodie</a></li>
+                        <li><a href="products.html?section=icons">Giày Đĩa Carbon <span class="fat-footer-badge">Pro</span></a></li>
+                    </ul>
+                </div>
+                <div class="fat-footer-col">
+                    <h3><i class="fa-solid fa-flask"></i> Phòng Lab & Công Nghệ</h3>
+                    <ul>
+                        <li><a href="#">Sợi Dệt Thoáng Khí AeroDry</a></li>
+                        <li><a href="#">Đĩa Đệm Carbon Tốc Độ</a></li>
+                        <li><a href="#">Chống Thấm Nước StormShield</a></li>
+                        <li><a href="#">Nén Cơ Sinh Học 4-Way</a></li>
+                        <li><a href="#">Vật Liệu Tái Chế Bền Vững</a></li>
+                    </ul>
+                </div>
+                <div class="fat-footer-col">
+                    <h3><i class="fa-solid fa-users"></i> Cộng Đồng & Dịch Vụ</h3>
+                    <ul>
+                        <li><a href="#">LuxeSport Run Club (Hà Nội & TP.HCM)</a></li>
+                        <li><a href="#">Đội Ngũ Vận Động Viên Đại Sứ</a></li>
+                        <li><a href="#">Hướng Dẫn Đo Size Theo Bộ Môn</a></li>
+                        <li><a href="#">Chính Sách Chạy Thử 30 Ngày</a></li>
+                        <li><a href="#">Hệ Thống Trải Nghiệm Thể Thao</a></li>
+                    </ul>
+                </div>
+                <div class="fat-footer-col">
+                    <h3><i class="fa-solid fa-paper-plane"></i> Bản Tin Tốc Độ</h3>
+                    <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.5;margin-bottom:1rem;">Đăng ký để nhận thông tin sớm nhất về các đợt mở bán giày Carbon và giải chạy cộng đồng.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn...">
+                        <button type="button">Gửi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Monument Stamp -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>LUXESPORT</h4>
+                    <p>
+                        Thương hiệu thời trang thể thao hiệu suất cao và phụ kiện tập luyện chuyên nghiệp. Công nghệ bứt tốc, chuẩn mực và bền bỉ.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" title="Strava"><i class="fa-brands fa-strava"></i></a>
+                        <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Về Chúng Tôi</h4>
+                    <ul>
+                        <li><a href="#">Giới thiệu LuxeSport</a></li>
+                        <li><a href="#">Phòng Lab Đổi Mới</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Tin tức thể thao</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Hỗ Trợ</h4>
+                    <ul>
+                        <li><a href="#">Chính sách đổi trả 30 ngày</a></li>
+                        <li><a href="#">Bảng kích thước & nén cơ</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#">Vận chuyển hỏa tốc</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ứng Dụng LuxeSport</h4>
+                    <p>Tải ứng dụng để theo dõi kế hoạch chạy bộ và tích điểm đổi quà thành viên.</p>
+                    <div style="margin-top:1rem;display:flex;gap:0.75rem;">
+                        <button class="btn btn-secondary" style="padding:0.5rem 1rem;font-size:0.82rem;"><i class="fa-brands fa-apple"></i> iOS App</button>
+                        <button class="btn btn-secondary" style="padding:0.5rem 1rem;font-size:0.82rem;"><i class="fa-brands fa-google-play"></i> Android</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-monument-wrap">
+                <div class="footer-monument-text">LUXESPORT</div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LUXESPORT PERFORMANCE ATELIER. All rights reserved.</p>
+                <p>Lập trình cơ sở với JavaScript · WEB1044</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/validator.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/validate.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const summaryContainer = document.getElementById('checkout-summary');
+            if (cart.length === 0) {
+                summaryContainer.innerHTML = '<p style="color:var(--text-muted); text-align:center;">Giỏ hàng của bạn đang trống.</p>';
+                return;
+            }
+
+            let total = 0;
+            let itemsHtml = cart.map(item => {
+                total += item.price * item.quantity;
+                return `
+                    <div class="summary-row" style="align-items: center; padding: 0.6rem 0;">
+                        <span style="flex: 1; font-size: 0.9rem">${item.name} <small style="color:var(--text-muted)">× ${item.quantity}</small></span>
+                        <span style="font-weight: 600">${formatPrice(item.price * item.quantity)}</span>
+                    </div>
+                `;
+            }).join('');
+
+            summaryContainer.innerHTML = `
+                <h3 style="font-family: var(--font-display); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 1.25rem;">Đơn Hàng Của Bạn</h3>
+                ${itemsHtml}
+                <div class="summary-row summary-total">
+                    <span>Tổng thanh toán:</span>
+                    <span style="color: var(--accent)">${formatPrice(total)}</span>
+                </div>
+            `;
+        });
+    </script>
+</body>
+
+</html>
